@@ -9,39 +9,6 @@ on:
       - main
 
 jobs:
-  build-qemu-win32:
-    name: QEMU win32 build
-    runs-on: ubuntu-24.04
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          submodules: recursive
-
-      - name: Install dependencies
-        run: |
-          sudo ./scripts/install-apt-dependencies
-
-      - name: Build Win32
-        run: |
-          mkdir build-win32
-          cd build-win32
-          ../configure --disable-debug --prefix /opt/gcc/win32 --with-host=x86_64-w64-mingw32
-          make -j$(nproc) stamps/build-qemu
-
-      - name: Package
-        run: |
-          cd /opt/gcc/win32
-          zip -r9 ../qemu-win32.zip bin/qemu-system-tricore.exe share
-      
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          if-no-files-found: error
-          name: tricore-qemu-win32-artifacts
-          path: /opt/gcc/*.zip
-
   build-gdb-win32:
     name: GDB win32 build
     runs-on: ubuntu-24.04
