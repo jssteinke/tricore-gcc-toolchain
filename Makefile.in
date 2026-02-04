@@ -556,7 +556,7 @@ stamps/build-gdb: $(BINUTILS_SRCDIR) stamps/build-mpc stamps/build-iconv
 		--without-debuginfod \
 		--with-gnu-ld \
 		--with-gnu-as \
-		--with-python=/usr/bin/python3.1 \
+		--with-python=/usr/bin/python \
 		--disable-unit-tests \
 		CFLAGS="$(CFLAGS)" \
 		CXXFLAGS="$(CXXFLAGS)" \
