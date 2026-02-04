@@ -528,6 +528,7 @@ stamps/build-gdb: $(BINUTILS_SRCDIR) stamps/build-mpc stamps/build-iconv
 		--program-prefix=tricore-elf- \
 		--prefix=$(INSTALL_DIR)/deps \
 		$(CONFIGURE_HOST) \
+		--with-python \
 		--with-gmp-include=$(INSTALL_DIR)/deps/include \
 		--with-gmp-lib=$(INSTALL_DIR)/deps/lib \
 		--with-mpc-include=$(INSTALL_DIR)/deps/include \
@@ -554,7 +555,6 @@ stamps/build-gdb: $(BINUTILS_SRCDIR) stamps/build-mpc stamps/build-iconv
 		--disable-tui \
 		--without-guile \
 		--without-debuginfod \
-		--with-python \
 		--with-gnu-ld \
 		--with-gnu-as \
 		--disable-unit-tests \
